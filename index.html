@@ -303,140 +303,7 @@
     0%, 100% { box-shadow: 0 0 20px rgba(33, 112, 228, 0.1); }
     50% { box-shadow: 0 0 40px rgba(33, 112, 228, 0.2); }
   }
-</style>
-<style>
-@keyframes marquee {
- ...
-}
-</style>
-
-<style>
-@keyframes spin-border {
- ...
-}
-</style>
-
-<style>
-@keyframes subtle-pulse {
- ...
-}
-</style>
-
-<!-- TEMPEL DI SINI -->
-<style>
-
-/* RESPONSIVE MASTER PACK */
-
-html,
-body {
-  overflow-x: hidden;
-  width: 100%;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-@media (max-width: 768px) {
-
-  .text-display {
-    font-size: 38px !important;
-    line-height: 1.1 !important;
-  }
-
-  .text-h1 {
-    font-size: 30px !important;
-  }
-
-  .text-h2 {
-    font-size: 22px !important;
-  }
-
-  .text-body-lg {
-    font-size: 16px !important;
-  }
-
-  .text-body-md {
-    font-size: 15px !important;
-  }
-
-  section {
-    padding-top: 80px !important;
-    padding-bottom: 80px !important;
-  }
-
-  #home {
-    text-align: center;
-    padding-top: 120px !important;
-  }
-
-  #home .flex-wrap {
-    justify-content: center;
-  }
-
-  #home p {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .md\:w-\[464px\] {
-    width: 280px !important;
-  }
-
-  .md\:h-\[464px\] {
-    height: 280px !important;
-  }
-
-  .h-80 {
-    height: 220px !important;
-  }
-
-  .w-32.h-32 {
-    width: 90px !important;
-    height: 90px !important;
-  }
-
-  .animate-marquee {
-    gap: 20px !important;
-  }
-
-  .p-10 {
-    padding: 1.5rem !important;
-  }
-
-  .p-8 {
-    padding: 1.25rem !important;
-  }
-
-  nav .flex.items-center.gap-stack-md {
-    overflow-x: auto;
-    white-space: nowrap;
-    max-width: 92vw;
-    scrollbar-width: none;
-  }
-
-  nav .flex.items-center.gap-stack-md::-webkit-scrollbar {
-    display: none;
-  }
-
-  form .grid {
-    grid-template-columns: 1fr !important;
-  }
-
-  footer .flex-col.md\:flex-row {
-    text-align: center;
-  }
-}
-
-* {
-  min-width: 0;
-}
-
-</style>
-
-</head></head><body class="text-on-background font-body-md antialiased selection:bg-secondary-container selection:text-white relative overflow-x-hidden">
+</style></head><body class="text-on-background font-body-md antialiased selection:bg-secondary-container selection:text-white relative overflow-x-hidden">
 <!-- Background Shapes -->
 <div class="mesh-bg fixed inset-0 overflow-hidden pointer-events-none z-[-1]">
 <div class="liquid-blob blob-blue"></div>
@@ -465,9 +332,9 @@ img {
 <main>
 <!-- Hero Section -->
 <section class="max-w-container-max-width mx-auto px-gutter min-h-screen flex items-center pt-20 relative z-10 reveal active" id="home">
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-stack-lg">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-lg items-center w-full">
 <div class="order-2 md:order-1 flex flex-col gap-stack-md">
-<div class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/60 dark:bg-white/10 border border-white/20 backdrop-blur-xl w-fit shadow-[0_0_25px_rgba(33,112,228,0.18)] hover:shadow-[0_0_40px_rgba(33,112,228,0.28)] transition-all duration-500">
+<div class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/50 border border-black/5 backdrop-blur-md w-fit shadow-[0_4px_12px_rgba(0,0,0,0.05)]">
 <div class="relative flex h-[9px] w-[9px]">
 <span class="animate-[ping_2s_cubic-bezier(0,0,0.2,1)_infinite] absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75 shadow-[0_0_10px_rgba(74,222,128,0.8)]"></span>
 <span class="relative inline-flex rounded-full h-[9px] w-[9px] bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]"></span>
@@ -489,7 +356,7 @@ img {
 </div>
 <div class="order-1 md:order-2 flex justify-center relative group items-center">
 <div class="absolute md:w-[464px] md:h-[464px] w-[320px] h-[320px] rounded-[4.5rem] border-[2px] border-secondary/20 bg-gradient-to-tr from-primary/30 via-transparent to-secondary/30 animate-spin-border blur-sm"></div>
-<div class="relative w-[260px] h-[260px] sm:w-[320px] sm:h-[320px] md:w-[464px] md:h-[464px] rounded-[4.5rem] overflow-hidden group hover:scale-[1.02] transition-transform duration-700 ease-out z-10 flex items-center justify-center border border-white/20 shadow-[0_0_40px_rgba(0,88,190,0.15)] animate-[subtle-pulse_4s_ease-in-out_infinite]">
+<div class="relative md:w-[464px] md:h-[464px] w-[320px] h-[320px] rounded-[4.5rem] overflow-hidden group hover:scale-[1.02] transition-transform duration-700 ease-out z-10 flex items-center justify-center border border-white/20 shadow-[0_0_40px_rgba(0,88,190,0.15)] animate-[subtle-pulse_4s_ease-in-out_infinite]">
 <div class="relative w-full h-full rounded-[4.5rem] overflow-hidden bg-white/5 flex items-center justify-center">
 <img alt="Kamal Khaerus Syam - Profile Photo" class="w-full h-full object-cover object-center scale-105 group-hover:scale-100 transition-transform duration-700 ease-in-out" src="https://lh3.googleusercontent.com/aida/ADBb0ujZaf9OAGbl424FgOkPmuUpBOEwCbhKWwf5rGUAMXGSZPeE-QslczYWaBoG7AJd28wwgJOkdFpmnI3czWLW8CqXdn6ZCrzD5_6RY_vkqtYjDQ_1opy1Ir_oTHEdlbeDGSyOvnvasoi9wdci-HN2kCV4KGxjSfTnGKQI2tgcU9xZDPo3Hhr6CTc_PV8AanELm79REk8TdaOpNMKLrpqyiT9WQfdLJv29mLc6GxbRPcNA5btSi4B29d-iAaN6rebiIBG7RfNZt_q9PQ"/>
 </div>
@@ -813,5 +680,3 @@ img {
     });
 </script>
 </body></html>
-
-coba baca kode ini
