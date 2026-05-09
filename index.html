@@ -219,82 +219,89 @@
             transform: translateY(0);
         }
 
-        /* ── RESPONSIVE FIXES ── */
+        /* ── RESPONSIVE ── */
 
-        /* Nav: on small screens show a pill with fewer items or wrap */
+        /* Mobile: ≤ 640px */
         @media (max-width: 640px) {
-            /* Pill nav: hide secondary links, keep key ones */
-            .nav-secondary { display: none; }
+            .py-section-padding { padding-top: 60px; padding-bottom: 60px; }
+            .px-gutter { padding-left: 16px; padding-right: 16px; }
 
-            /* Hero display font smaller on mobile */
-            .font-display { font-size: 36px !important; line-height: 1.15 !important; }
+            .font-display { font-size: 32px; line-height: 1.15; }
 
-            /* Section padding reduced */
-            .py-section-padding { padding-top: 64px !important; padding-bottom: 64px !important; }
+            .hero-grid {
+                display: flex; flex-direction: column;
+                align-items: center; text-align: center;
+                gap: 28px; padding-top: 88px; padding-bottom: 40px;
+                min-height: auto;
+            }
+            .hero-grid > div:first-child { order: 2; align-items: center; }
+            .hero-grid > div:last-child  { order: 1; }
+            .hero-badge { margin: 0 auto; }
+            .hero-cta   { justify-content: center; }
+            .hero-img-wrap   { width: 240px; height: 240px; border-radius: 3rem; }
+            .hero-img-border { width: 240px; height: 240px; border-radius: 3rem; }
 
-            /* Profile image smaller */
-            .hero-img-wrap { width: 260px !important; height: 260px !important; }
-            .hero-img-border { width: 260px !important; height: 260px !important; }
+            .blob-blue  { width: 260px; height: 260px; }
+            .blob-cyan  { width: 220px; height: 220px; }
+            .blob-purple{ width: 240px; height: 240px; }
 
-            /* Stat cards: 2 columns on mobile */
-            .stat-grid { grid-template-columns: repeat(2, 1fr) !important; }
-
-            /* Horizontal padding tighter */
-            .px-gutter { padding-left: 16px !important; padding-right: 16px !important; }
-
-            /* Footer card: stack fully */
-            .footer-inner { flex-direction: column !important; align-items: center !important; text-align: center !important; }
+            .stat-grid { grid-template-columns: repeat(2, 1fr); }
+            .timeline-col { margin-left: 4px; padding-left: 24px; }
+            .portfolio-grid { grid-template-columns: 1fr; }
+            .contact-grid   { grid-template-columns: 1fr; }
+            .marquee-icon   { width: 72px; height: 72px; padding: 12px; }
+            .footer-inner   { flex-direction: column; align-items: center; text-align: center; }
         }
 
+        /* Tablet: 641px – 768px */
+        @media (min-width: 641px) and (max-width: 768px) {
+            .py-section-padding { padding-top: 80px; padding-bottom: 80px; }
+
+            .font-display { font-size: 38px; line-height: 1.15; }
+
+            .hero-grid {
+                display: flex; flex-direction: column;
+                align-items: center; text-align: center;
+                gap: 32px; padding-top: 96px; padding-bottom: 48px;
+                min-height: auto;
+            }
+            .hero-grid > div:first-child { order: 2; align-items: center; }
+            .hero-grid > div:last-child  { order: 1; }
+            .hero-badge { margin: 0 auto; }
+            .hero-cta   { justify-content: center; }
+            .hero-img-wrap   { width: 280px; height: 280px; }
+            .hero-img-border { width: 280px; height: 280px; }
+
+            .blob-blue  { width: 300px; height: 300px; }
+            .blob-cyan  { width: 260px; height: 260px; }
+            .blob-purple{ width: 280px; height: 280px; }
+
+            .stat-grid { grid-template-columns: repeat(2, 1fr); }
+            .timeline-col { margin-left: 8px; padding-left: 28px; }
+            .portfolio-grid { grid-template-columns: 1fr; }
+            .contact-grid   { grid-template-columns: 1fr; }
+            .marquee-icon   { width: 88px; height: 88px; padding: 16px; }
+        }
+
+        /* Large tablet: 769px – 1024px */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .font-display { font-size: 44px; }
+            .blob-blue  { width: 500px; height: 500px; }
+            .blob-cyan  { width: 380px; height: 380px; }
+        }
+
+        /* Nav pill scroll on smaller screens */
         @media (max-width: 768px) {
-            /* Nav pill: hide all but Home & Hire Me, or scroll */
             .nav-pill {
                 overflow-x: auto;
                 -webkit-overflow-scrolling: touch;
                 scrollbar-width: none;
-                max-width: calc(100vw - 2rem);
+                max-width: calc(100vw - 80px);
                 flex-wrap: nowrap;
-                gap: 4px;
+                gap: 2px;
             }
             .nav-pill::-webkit-scrollbar { display: none; }
-            .nav-pill a { white-space: nowrap; padding: 6px 12px !important; font-size: 13px !important; }
-
-            /* Reduce blob sizes to avoid overflow */
-            .blob-blue  { width: 300px !important; height: 300px !important; }
-            .blob-cyan  { width: 250px !important; height: 250px !important; }
-            .blob-purple{ width: 280px !important; height: 280px !important; }
-
-            /* Stack hero section properly */
-            .hero-grid { display: flex !important; flex-direction: column !important; align-items: center !important; text-align: center !important; gap: 32px !important; padding-top: 100px !important; padding-bottom: 48px !important; }
-            .hero-grid > div:first-child { order: 2 !important; align-items: center !important; }
-            .hero-grid > div:last-child  { order: 1 !important; }
-            .hero-cta { justify-content: center !important; }
-            .hero-badge { margin: 0 auto !important; }
-
-            /* About stat cards: 2-column grid */
-            .stat-grid { grid-template-columns: repeat(2, 1fr) !important; }
-
-            /* Education timeline: less left margin */
-            .timeline-col { margin-left: 8px !important; padding-left: 28px !important; }
-
-            /* Portfolio: single column */
-            .portfolio-grid { grid-template-columns: 1fr !important; }
-
-            /* Contact: single column */
-            .contact-grid { grid-template-columns: 1fr !important; }
-
-            /* Skills marquee card size */
-            .marquee-icon { width: 88px !important; height: 88px !important; padding: 16px !important; }
-
-            /* display font */
-            .font-display { font-size: 40px !important; }
-        }
-
-        @media (min-width: 769px) and (max-width: 1024px) {
-            /* Tablet: minor tweaks */
-            .font-display { font-size: 44px !important; }
-            .blob-blue  { width: 500px !important; height: 500px !important; }
-            .blob-cyan  { width: 380px !important; height: 380px !important; }
+            .nav-pill a { white-space: nowrap; padding: 6px 10px; font-size: 13px; }
         }
 
         /* Marquee animation */
@@ -337,30 +344,69 @@
             position: fixed;
             inset: 0;
             background: rgba(248,249,250,0.97);
-            backdrop-filter: blur(16px);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             z-index: 100;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 24px;
+            gap: 20px;
+            opacity: 0;
+            transform: translateY(-8px);
+            transition: opacity 0.25s ease, transform 0.25s ease;
         }
-        #mobile-menu.open { display: flex; }
+        #mobile-menu.open {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0);
+        }
         #mobile-menu a {
-            font-size: 28px;
+            font-size: 26px;
             font-weight: 700;
             color: #191c1d;
             text-decoration: none;
             transition: color 0.2s;
+            padding: 4px 0;
         }
         #mobile-menu a:hover { color: #2170e4; }
         #mobile-menu-close {
             position: absolute;
-            top: 24px;
-            right: 24px;
-            background: none;
-            border: none;
+            top: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             cursor: pointer;
-            font-size: 32px;
+            transition: background 0.2s;
+        }
+        #mobile-menu-close:hover { background: rgba(0,0,0,0.1); }
+
+        /* Nav scrolled state */
+        nav.scrolled > div > div.nav-pill {
+            background: rgba(255,255,255,0.85);
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+        }
+
+        /* Focus visible for keyboard nav */
+        a:focus-visible, button:focus-visible {
+            outline: 2px solid #2170e4;
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+
+        /* Prevent hover-lift on touch devices (avoids stuck states) */
+        @media (hover: none) {
+            .hover-lift:hover {
+                transform: none;
+                box-shadow: 0 8px 32px rgba(0,0,0,0.05), inset 0 1px 0 rgba(255,255,255,0.5);
+                border-color: rgba(255,255,255,0.8);
+                background: rgba(255,255,255,0.6);
+            }
         }
 </style>
 </head>
@@ -377,9 +423,9 @@
 </div>
 
 <!-- Mobile Menu Overlay -->
-<div id="mobile-menu">
+<div id="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation menu">
     <button id="mobile-menu-close" aria-label="Close menu">
-        <span class="material-symbols-outlined" style="font-size:32px;">close</span>
+        <span class="material-symbols-outlined" style="font-size:22px; line-height:1;">close</span>
     </button>
     <a href="#home"      onclick="closeMobileMenu()">Home</a>
     <a href="#about"     onclick="closeMobileMenu()">About</a>
@@ -387,7 +433,7 @@
     <a href="#skills"    onclick="closeMobileMenu()">Skills</a>
     <a href="#portfolio" onclick="closeMobileMenu()">Portfolio</a>
     <a href="#contact"   onclick="closeMobileMenu()">Contact</a>
-    <a href="#contact"   onclick="closeMobileMenu()" style="background:#000;color:#fff;padding:12px 32px;border-radius:9999px;font-size:18px;">Hire Me</a>
+    <a href="#contact"   onclick="closeMobileMenu()" style="background:#000;color:#fff;padding:12px 36px;border-radius:9999px;font-size:16px;margin-top:8px;">Hire Me</a>
 </div>
 
 <!-- TopNavBar -->
@@ -454,14 +500,9 @@
     <div class="max-w-container-max-width mx-auto px-gutter relative z-10">
         <div class="text-center mb-stack-lg max-w-2xl mx-auto reveal">
             <h2 class="font-h1 text-h1 text-on-background mb-stack-sm font-bold tracking-tight">About <span class="text-secondary-container">Me</span></h2>
-        <p class="max-w-3xl mx-auto text-center leading-8 text-gray-600 text-lg">
-  Hi! I'm <span class="font-semibold text-black">Kamal Khaerus Syam</span>, 
-  an Information Systems student passionate about UI/UX Design and Web Development. 
-  I enjoy building modern, responsive, and user-friendly websites with clean visuals 
-  and intuitive experiences. Currently, I focus on front-end development using 
-  HTML, CSS, JavaScript, Tailwind CSS, and React while continuously exploring 
-  creative and minimalist design styles.
-</p>   
+            <p class="font-body-md text-body-md text-on-surface-variant text-lg">
+                I am currently pursuing a degree in Information Systems at Institut Pendidikan Indonesia Garut. My academic focus blends systems analysis with modern product design, ensuring digital solutions are both functional and visually compelling.
+            </p>
         </div>
         <div class="stat-grid grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-stack-md">
             <div class="holographic-card p-5 md:p-8 hover-lift flex flex-col items-center text-center group reveal">
@@ -757,31 +798,28 @@
 <script>
     // Scroll Reveal
     document.addEventListener("DOMContentLoaded", function() {
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-        const observer = new IntersectionObserver((entries, observer) => {
+        const observer = new IntersectionObserver((entries, obs) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
-                    observer.unobserve(entry.target);
+                    obs.unobserve(entry.target);
                 }
             });
-        }, observerOptions);
-        document.querySelectorAll('.reveal').forEach((el) => {
-            observer.observe(el);
-        });
+        }, { root: null, rootMargin: '0px', threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     });
 
-    // Mobile Menu
-    const hamburger = document.getElementById('hamburger-btn');
+    // Mobile Menu — with animation frame trick so CSS transition fires
+    const hamburger  = document.getElementById('hamburger-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     const closeBtn   = document.getElementById('mobile-menu-close');
 
     hamburger.addEventListener('click', () => {
-        mobileMenu.classList.add('open');
+        mobileMenu.style.display = 'flex';
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => mobileMenu.classList.add('open'));
+        });
         document.body.style.overflow = 'hidden';
     });
 
@@ -790,28 +828,42 @@
     function closeMobileMenu() {
         mobileMenu.classList.remove('open');
         document.body.style.overflow = '';
+        // wait for transition then hide
+        mobileMenu.addEventListener('transitionend', () => {
+            if (!mobileMenu.classList.contains('open')) mobileMenu.style.display = '';
+        }, { once: true });
     }
 
-    // Close mobile menu on outside click
-    mobileMenu.addEventListener('click', (e) => {
+    // Close on backdrop click
+    mobileMenu.addEventListener('click', e => {
         if (e.target === mobileMenu) closeMobileMenu();
     });
 
-    // Active nav link highlight on scroll
+    // Close on Escape key
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMobileMenu();
+    });
+
+    // Nav: add scrolled class + active link highlight
+    const nav      = document.querySelector('nav');
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-pill a');
+
     window.addEventListener('scroll', () => {
+        // Scrolled state for nav backdrop
+        nav.classList.toggle('scrolled', window.scrollY > 20);
+
+        // Active section highlight
         let current = '';
         sections.forEach(sec => {
-            if (window.scrollY >= sec.offsetTop - 120) current = sec.getAttribute('id');
+            if (window.scrollY >= sec.offsetTop - 140) current = sec.getAttribute('id');
         });
         navLinks.forEach(link => {
-            link.classList.remove('bg-black/5', 'font-semibold', 'text-on-background');
-            link.classList.add('text-on-surface-variant');
-            if (link.getAttribute('href') === '#' + current) {
-                link.classList.add('bg-black/5', 'font-semibold', 'text-on-background');
-                link.classList.remove('text-on-surface-variant');
-            }
+            const isActive = link.getAttribute('href') === '#' + current;
+            link.classList.toggle('bg-black/5',        isActive);
+            link.classList.toggle('font-semibold',     isActive);
+            link.classList.toggle('text-on-background',isActive);
+            link.classList.toggle('text-on-surface-variant', !isActive);
         });
     }, { passive: true });
 </script>
