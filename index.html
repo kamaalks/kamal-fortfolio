@@ -409,6 +409,162 @@
             }
         }
 </style>
+
+<style>
+/* ══════════════════════════════════════════
+   DARK MODE
+══════════════════════════════════════════ */
+
+/* Base */
+.dark body { background-color: #0d0f10; color: #e8eaeb; }
+
+/* Background blobs – more vivid in dark */
+.dark .blob-blue   { background: radial-gradient(circle, rgba(59,130,246,0.25) 0%, transparent 70%); }
+.dark .blob-cyan   { background: radial-gradient(circle, rgba(6,182,212,0.18) 0%, transparent 70%); }
+.dark .blob-purple { background: radial-gradient(circle, rgba(139,92,246,0.2) 0%, transparent 70%); }
+.dark .liquid-blob { mix-blend-mode: screen; }
+
+/* Holographic card */
+.dark .holographic-card {
+    background: rgba(255,255,255,0.04);
+    border-color: rgba(255,255,255,0.08);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.06);
+}
+.dark .hover-lift:hover {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(59,130,246,0.4);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5), 0 0 20px rgba(59,130,246,0.2);
+}
+.dark .hover-lift:hover { /* touch override stays off */ }
+
+/* Text colours */
+.dark .text-on-background  { color: #e8eaeb; }
+.dark .text-on-surface     { color: #e0e2e3; }
+.dark .text-on-surface-variant { color: #9aa0a6; }
+.dark .text-on-primary     { color: #ffffff; }
+
+/* Nav pill */
+.dark .nav-pill {
+    background: rgba(255,255,255,0.06);
+    border-color: rgba(255,255,255,0.1);
+}
+.dark .nav-pill a          { color: #9aa0a6; }
+.dark .nav-pill a.text-on-background { color: #e8eaeb; }
+.dark .nav-pill a.bg-black\/5 { background: rgba(255,255,255,0.1); }
+.dark nav.scrolled > div > div.nav-pill {
+    background: rgba(13,15,16,0.9);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+}
+
+/* Hamburger button */
+.dark #hamburger-btn {
+    background: rgba(255,255,255,0.06);
+    border-color: rgba(255,255,255,0.1);
+    color: #e8eaeb;
+}
+
+/* Mobile menu */
+.dark #mobile-menu {
+    background: rgba(13,15,16,0.97);
+}
+.dark #mobile-menu a      { color: #e8eaeb; }
+.dark #mobile-menu a:hover { color: #4d9fff; }
+.dark #mobile-menu-close  { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.12); }
+
+/* Hero badge */
+.dark .hero-badge {
+    background: rgba(255,255,255,0.06);
+    border-color: rgba(255,255,255,0.1);
+}
+
+/* Contact form inputs */
+.dark input, .dark textarea {
+    background: rgba(255,255,255,0.05);
+    border-color: rgba(255,255,255,0.1);
+    color: #e8eaeb;
+}
+.dark input::placeholder, .dark textarea::placeholder { color: #555e65; }
+.dark input:focus, .dark textarea:focus {
+    border-color: #2170e4;
+    background: rgba(33,112,228,0.08);
+}
+
+/* Surface containers */
+.dark .bg-surface-container       { background-color: #1a1d1f; }
+.dark .bg-surface-container-high  { background-color: #1f2326; }
+.dark .border-black\/5            { border-color: rgba(255,255,255,0.08); }
+.dark .bg-black\/5                { background: rgba(255,255,255,0.06); }
+.dark .bg-white\/50               { background: rgba(255,255,255,0.04); }
+
+/* Marquee fade edges */
+.dark .marquee-container .absolute.left-0 {
+    background: linear-gradient(to right, #0d0f10, transparent);
+}
+.dark .marquee-container .absolute.right-0 {
+    background: linear-gradient(to left, #0d0f10, transparent);
+}
+
+/* Name gradient in dark – keep vibrant */
+.dark .premium-text-gradient {
+    background: linear-gradient(to right, #ffffff 10%, #4d9fff 55%, #2170e4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% auto;
+}
+
+/* Progress bar bg */
+.dark .bg-surface-container.rounded-full { background-color: #1f2326; }
+
+/* Footer */
+.dark footer .holographic-card { background: rgba(255,255,255,0.03); }
+
+/* Social icon hover */
+.dark .hover\:bg-secondary-container:hover { background-color: #2170e4; }
+
+/* Toggle button */
+#dark-toggle {
+    position: relative;
+    width: 52px;
+    height: 28px;
+    border-radius: 9999px;
+    background: rgba(0,0,0,0.1);
+    border: 1px solid rgba(0,0,0,0.12);
+    cursor: pointer;
+    transition: background 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    padding: 2px 4px;
+    flex-shrink: 0;
+}
+.dark #dark-toggle {
+    background: rgba(33,112,228,0.3);
+    border-color: rgba(33,112,228,0.5);
+}
+#dark-toggle-knob {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.25);
+    transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), background 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    line-height: 1;
+}
+.dark #dark-toggle-knob {
+    transform: translateX(24px);
+    background: #2170e4;
+}
+
+/* Smooth dark mode transition */
+html { transition: background-color 0.35s ease; }
+body, .holographic-card, nav, #mobile-menu, input, textarea {
+    transition: background-color 0.35s ease, border-color 0.35s ease, color 0.35s ease, box-shadow 0.35s ease;
+}
+</style>
 </head>
 
 <body class="text-on-background font-body-md antialiased selection:bg-secondary-container selection:text-white relative overflow-x-hidden">
@@ -447,6 +603,10 @@
             <a class="font-body-md text-body-md text-on-surface-variant hover:text-on-background transition-colors duration-300 px-3 py-2 text-sm" href="#skills">Skills</a>
             <a class="font-body-md text-body-md text-on-surface-variant hover:text-on-background transition-colors duration-300 px-3 py-2 text-sm" href="#portfolio">Portfolio</a>
             <a class="font-body-md text-body-md text-on-surface-variant hover:text-on-background transition-colors duration-300 px-3 py-2 text-sm" href="#contact">Contact</a>
+            <div class="w-px h-5 bg-black/10 mx-1 dark:bg-white/10"></div>
+            <button id="dark-toggle" aria-label="Toggle dark mode">
+                <span id="dark-toggle-knob">☀️</span>
+            </button>
         </div>
         <!-- Hire Me (Desktop) -->
         <a class="absolute right-0 hidden lg:inline-flex items-center justify-center bg-primary text-on-primary font-body-md font-bold px-8 py-3 rounded-full hover:scale-104 transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.12)] btn-glow" href="#contact">Hire Me</a>
@@ -519,7 +679,7 @@
                 <div class="w-14 h-14 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br from-black/5 to-transparent border border-black/5 flex items-center justify-center mb-4 md:mb-6 shadow-[0_4px_12px_rgba(0,0,0,0.05)] group-hover:scale-110 transition-transform duration-500">
                     <span class="material-symbols-outlined text-2xl md:text-4xl text-on-background" style='font-variation-settings: "FILL" 1;'>grade</span>
                 </div>
-                <h3 class="font-display text-on-background font-bold bg-clip-text text-transparent bg-gradient-to-r from-black to-black/70" style="font-size: clamp(28px, 5vw, 48px);">3.77</h3>
+                <h3 class="font-display text-on-background font-bold bg-clip-text text-transparent bg-gradient-to-r from-black to-black/70" style="font-size: clamp(28px, 5vw, 48px);">3.85</h3>
                 <p class="font-label-caps text-label-caps text-tertiary-container mt-2 tracking-[0.2em] uppercase font-bold">CURRENT GPA</p>
             </div>
             <div class="holographic-card p-5 md:p-8 hover-lift flex flex-col items-center text-center group reveal" style="transition-delay: 200ms;">
@@ -554,7 +714,7 @@
                             <h3 class="font-h2 text-h2 font-semibold text-on-background tracking-tight">Bachelor of Information Systems</h3>
                             <p class="font-body-md text-body-md text-secondary-container mt-1 font-semibold">Institut Pendidikan Indonesia Garut</p>
                         </div>
-                        <span class="bg-black/5 border border-black/10 text-on-background font-label-caps text-label-caps px-4 py-2 rounded-full tracking-widest uppercase font-bold shadow-[0_2px_8px_rgba(0,0,0,0.05)] whitespace-nowrap">2023 - Present</span>
+                        <span class="bg-black/5 border border-black/10 text-on-background font-label-caps text-label-caps px-4 py-2 rounded-full tracking-widest uppercase font-bold shadow-[0_2px_8px_rgba(0,0,0,0.05)] whitespace-nowrap">2021 - Present</span>
                     </div>
                     <p class="font-body-md text-body-md text-on-surface-variant text-lg">
                         Focusing on systems analysis, database design, and user experience. Active in the Information Systems Student Association and participating in various web development projects.
@@ -595,54 +755,108 @@
         </div>
         <div class="reveal" style="transition-delay: 200ms;">
             <div class="marquee-container overflow-hidden whitespace-nowrap py-6 md:py-10 relative group">
-                <div class="absolute inset-y-0 left-0 w-[80px] md:w-[120px] bg-gradient-to-r from-[#f8f9fa] to-transparent z-10 pointer-events-none"></div>
-                <div class="absolute inset-y-0 right-0 w-[80px] md:w-[120px] bg-gradient-to-l from-[#f8f9fa] to-transparent z-10 pointer-events-none"></div>
-                <div class="animate-marquee flex gap-6 md:gap-10">
-                    <div class="flex items-center gap-6 md:gap-10">
-                        <div class="marquee-icon w-20 h-20 md:w-32 md:h-32 holographic-card hover-lift hover:scale-[1.08] rounded-[2rem] flex items-center justify-center p-4 md:p-6 transition-all duration-500 cursor-pointer group/icon">
-                            <img alt="HTML5" class="w-full h-full object-contain filter drop-shadow-[0_0_20px_rgba(0,0,0,0.1)] group-hover/icon:drop-shadow-[0_0_30px_rgba(33,112,228,0.3)] transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmhWQQ-DDvastI45shCSmz-q_BscKZNaDBi3WaDjy6mxS-wp2l4Smc4xUCBFz43x69eA9fxPN8CdsdISVsb2i3gjZ_JwXaeIuIIEaFkOgb68ZXKihh55Nh9iuLz3jwcJJg43I4AyKqQ8oDi0EGSMJ0WnYvh6k_0bWUXF62e9CI2zQIH3S_nDMToxAM-FP3z3b1PfqK7ksfIso8fHdpsCbog0d_M3RX1-7yvPNbTnsGyHcBFW1HnLw9sdbgj1xfAM3goX1HC34e_kg"/>
+                <div class="marquee-fade-left absolute inset-y-0 left-0 w-[80px] md:w-[120px] z-10 pointer-events-none" style="background: linear-gradient(to right, #f8f9fa, transparent);"></div>
+                <div class="marquee-fade-right absolute inset-y-0 right-0 w-[80px] md:w-[120px] z-10 pointer-events-none" style="background: linear-gradient(to left, #f8f9fa, transparent);"></div>
+                <div class="animate-marquee flex gap-4 md:gap-6">
+                    <div class="flex items-end gap-4 md:gap-6">
+                        <div class="marquee-icon w-24 h-28 md:w-36 md:h-40 holographic-card hover-lift rounded-[2rem] flex flex-col items-center justify-center gap-2 p-4 md:p-5 transition-all duration-500 cursor-pointer group/icon ">
+                            <img alt="HTML5" class="w-12 h-12 md:w-16 md:h-16 object-contain filter drop-shadow-[0_0_12px_rgba(0,0,0,0.12)] group-hover/icon:drop-shadow-[0_0_20px_rgba(33,112,228,0.35)] group-hover/icon:scale-110 transition-all duration-500" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"/>
+                            <span class="text-[10px] md:text-xs font-bold text-on-surface-variant tracking-wider uppercase text-center leading-tight">HTML5</span>
                         </div>
-                        <div class="marquee-icon w-20 h-20 md:w-32 md:h-32 holographic-card hover-lift hover:scale-[1.08] rounded-[2rem] flex items-center justify-center p-4 md:p-6 transition-all duration-500 cursor-pointer group/icon">
-                            <img alt="CSS3" class="w-full h-full object-contain filter drop-shadow-[0_0_20px_rgba(0,0,0,0.1)] group-hover/icon:drop-shadow-[0_0_30px_rgba(33,112,228,0.3)] transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_PEuMxfqrOcU4vQ6afQH_e0GBzKRfkovwRJEGAERd-IXAXwO7difGj5wzmI_BZZqmI88wgB4MgXdU0dwbXegwc3dAxTw8c3VcStl2GV5qFF0rI4rh1e_dz-85FpUINSKeHmISpNU-JC14FzNpn-XSCVygDN-4RPuu2LfmG46uud9I-Cg9gcwv1WfFwKvsn0tRWbB0rIcU4BZ1MrXvoyZnVSqNhBXBZpKuwl95iHPZ17DKc9PC8mSTw3uGbLKMlunfU3GbISma_jM"/>
+                        <div class="marquee-icon w-24 h-28 md:w-36 md:h-40 holographic-card hover-lift rounded-[2rem] flex flex-col items-center justify-center gap-2 p-4 md:p-5 transition-all duration-500 cursor-pointer group/icon ">
+                            <img alt="CSS3" class="w-12 h-12 md:w-16 md:h-16 object-contain filter drop-shadow-[0_0_12px_rgba(0,0,0,0.12)] group-hover/icon:drop-shadow-[0_0_20px_rgba(33,112,228,0.35)] group-hover/icon:scale-110 transition-all duration-500" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"/>
+                            <span class="text-[10px] md:text-xs font-bold text-on-surface-variant tracking-wider uppercase text-center leading-tight">CSS3</span>
                         </div>
-                        <div class="marquee-icon w-20 h-20 md:w-32 md:h-32 holographic-card hover-lift hover:scale-[1.08] rounded-[2rem] flex items-center justify-center p-4 md:p-6 transition-all duration-500 cursor-pointer group/icon">
-                            <img alt="JavaScript" class="w-full h-full object-contain filter drop-shadow-[0_0_20px_rgba(0,0,0,0.1)] group-hover/icon:drop-shadow-[0_0_30px_rgba(33,112,228,0.3)] transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuM6t1svvTj6lFIv1ipHjIezX5FajH2pFOuLjymoTGXQxhlxx8cA9aBNzmgjZc6y5-U4Te3M7uizfkiyJe50iSvj1SfqiQpXg7le4SEWf6mwEsPQqNAkIFk54i7GS1Oa-yheSpR6L34ei9XpG5-b8xvg0ird-otM-wRyOAnGHrWt43bjtOeUq_ea57U7Sv3wVcuHvty4oCmlBZ0FNPxj3oyWkp7BghsZuy20hRFHClXFr1IWz8Y-q6y1yvp7gez0MJS-d1EqiaMKc"/>
+                        <div class="marquee-icon w-24 h-28 md:w-36 md:h-40 holographic-card hover-lift rounded-[2rem] flex flex-col items-center justify-center gap-2 p-4 md:p-5 transition-all duration-500 cursor-pointer group/icon ">
+                            <img alt="JavaScript" class="w-12 h-12 md:w-16 md:h-16 object-contain filter drop-shadow-[0_0_12px_rgba(0,0,0,0.12)] group-hover/icon:drop-shadow-[0_0_20px_rgba(33,112,228,0.35)] group-hover/icon:scale-110 transition-all duration-500" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"/>
+                            <span class="text-[10px] md:text-xs font-bold text-on-surface-variant tracking-wider uppercase text-center leading-tight">JavaScript</span>
                         </div>
-                        <div class="marquee-icon w-20 h-20 md:w-32 md:h-32 holographic-card hover-lift hover:scale-[1.08] rounded-[2rem] flex items-center justify-center p-4 md:p-6 transition-all duration-500 cursor-pointer group/icon">
-                            <img alt="React" class="w-full h-full object-contain filter drop-shadow-[0_0_20px_rgba(0,0,0,0.1)] group-hover/icon:drop-shadow-[0_0_30px_rgba(33,112,228,0.3)] transition-all duration-500 animate-[spin_10s_linear_infinite]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCr_X9kELE_nCqOpfOZo56qQvYtJeEnmrOIfj7Mv1L8d_dTnEiiUVF-B5DR1qfF6Eu_itwxlkIAcNi_KoNsx_W5LlFBEzA_2SLxk5LIJkVC5Dpt__h2OJwQjD13s1OxOemBmQQXLpoYGfvkMaot_mPK67hVhmF2ODBPzFWvUZMthKmChjx2YmwGmE0SJ-8CVpwspt-UnzcSe3jEob3T3t6mng9zzlDpdWmb5qy_KO_cWgB0fpAxO73B0SfDnRB83IeCvcub-T7sz5c"/>
+                        <div class="marquee-icon w-24 h-28 md:w-36 md:h-40 holographic-card hover-lift rounded-[2rem] flex flex-col items-center justify-center gap-2 p-4 md:p-5 transition-all duration-500 cursor-pointer group/icon ">
+                            <img alt="PHP" class="w-12 h-12 md:w-16 md:h-16 object-contain filter drop-shadow-[0_0_12px_rgba(0,0,0,0.12)] group-hover/icon:drop-shadow-[0_0_20px_rgba(33,112,228,0.35)] group-hover/icon:scale-110 transition-all duration-500" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg"/>
+                            <span class="text-[10px] md:text-xs font-bold text-on-surface-variant tracking-wider uppercase text-center leading-tight">PHP</span>
                         </div>
-                        <div class="marquee-icon w-20 h-20 md:w-32 md:h-32 holographic-card hover-lift hover:scale-[1.08] rounded-[2rem] flex items-center justify-center p-4 md:p-6 transition-all duration-500 cursor-pointer group/icon">
-                            <img alt="Figma" class="w-full h-full object-contain filter drop-shadow-[0_0_20px_rgba(0,0,0,0.1)] group-hover/icon:drop-shadow-[0_0_30px_rgba(33,112,228,0.3)] transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB88S_X6_aRn5lnrLN0UtTblvm6sULlodTmeZQJQS6YNJ8_gUGXHQEHCc4WWx9zAgR2BgMyym2r-baa3GOSuXTY9wEdvFXSCSppQGG734OzkSQFJc3aNZPztZwW4-U_kNzN9uk2rC1soCpuRuvWFACJ1h8ZJhKbCF2BCK-i74ys7KcC5t8jRosY-mK8c7oSKSIBofb_KDgDF2RCo8Fdsr9_kEFVLkMYvLLzuQrFCIosQeBqsjDu7kxKv8Fsg_sAFfkPoNu8KjuUUuw"/>
+                        <div class="marquee-icon w-24 h-28 md:w-36 md:h-40 holographic-card hover-lift rounded-[2rem] flex flex-col items-center justify-center gap-2 p-4 md:p-5 transition-all duration-500 cursor-pointer group/icon ">
+                            <img alt="Laravel" class="w-12 h-12 md:w-16 md:h-16 object-contain filter drop-shadow-[0_0_12px_rgba(0,0,0,0.12)] group-hover/icon:drop-shadow-[0_0_20px_rgba(33,112,228,0.35)] group-hover/icon:scale-110 transition-all duration-500" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg"/>
+                            <span class="text-[10px] md:text-xs font-bold text-on-surface-variant tracking-wider uppercase text-center leading-tight">Laravel</span>
                         </div>
-                        <div class="marquee-icon w-20 h-20 md:w-32 md:h-32 holographic-card hover-lift hover:scale-[1.08] rounded-[2rem] flex items-center justify-center p-4 md:p-6 transition-all duration-500 cursor-pointer group/icon">
-                            <img alt="PHP" class="w-full h-full object-contain filter drop-shadow-[0_0_20px_rgba(0,0,0,0.1)] group-hover/icon:drop-shadow-[0_0_30px_rgba(33,112,228,0.3)] transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6XyxS2hwE-Q0c51_rpvmEjtizojl9XQ3S4yVLun9bEiO-VHJNrM1hdvqY4JCGwMUPq4cSMl-1Fpiqyzfsl5Z3XnRlwaAk3GAs_BwJsqVUxRGC6WdKb0ZuGfTkc3AiKvTSCH_Tq6mEIiIO2fJKAjNeH-1M4HKNJV7k6e6c_9pNIfqcV9s3iqpzhS46VPFLv3S8_a2gvn-_fFWjWNjcGm1wDDFJ3FSQAuDDAVx9LbmtNq_NqLxHJaTy72KDFbXjGXCZZrlvBEvTTy0"/>
+                        <div class="marquee-icon w-24 h-28 md:w-36 md:h-40 holographic-card hover-lift rounded-[2rem] flex flex-col items-center justify-center gap-2 p-4 md:p-5 transition-all duration-500 cursor-pointer group/icon ">
+                            <img alt="MySQL" class="w-12 h-12 md:w-16 md:h-16 object-contain filter drop-shadow-[0_0_12px_rgba(0,0,0,0.12)] group-hover/icon:drop-shadow-[0_0_20px_rgba(33,112,228,0.35)] group-hover/icon:scale-110 transition-all duration-500" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"/>
+                            <span class="text-[10px] md:text-xs font-bold text-on-surface-variant tracking-wider uppercase text-center leading-tight">MySQL</span>
                         </div>
-                        <div class="marquee-icon w-20 h-20 md:w-32 md:h-32 holographic-card hover-lift hover:scale-[1.08] rounded-[2rem] flex items-center justify-center p-4 md:p-6 transition-all duration-500 cursor-pointer group/icon">
-                            <img alt="Laravel" class="w-full h-full object-contain filter drop-shadow-[0_0_20px_rgba(0,0,0,0.1)] group-hover/icon:drop-shadow-[0_0_30px_rgba(33,112,228,0.3)] transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8vdMk99UxeUDMh3qKpZE-VlnD-RwbYKcWc5T19onH0bb1YILOy4u2zROV7QODMqcUUKD1LMmwleyFXuOqB0iw26kRZRC3DL10gP64JgVccI4LtHiUX8AXyO68ywdCCuwA0WaU-7EwQR7ZxstyzohV7DKn5K92JYWSifoeTrsfQpSWKJmC7lO2w9FDufpDdf41FN1x5wxJMKKRz4cyo347L1jc_hulfmPWbJ5MgsC6eAXKE8rrJorTvVkVfYRhPy9N3Y_OqaoE4OA"/>
+                        <div class="marquee-icon w-24 h-28 md:w-36 md:h-40 holographic-card hover-lift rounded-[2rem] flex flex-col items-center justify-center gap-2 p-4 md:p-5 transition-all duration-500 cursor-pointer group/icon ">
+                            <img alt="React" class="w-12 h-12 md:w-16 md:h-16 object-contain filter drop-shadow-[0_0_12px_rgba(0,0,0,0.12)] group-hover/icon:drop-shadow-[0_0_20px_rgba(33,112,228,0.35)] group-hover/icon:scale-110 transition-all duration-500" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"/>
+                            <span class="text-[10px] md:text-xs font-bold text-on-surface-variant tracking-wider uppercase text-center leading-tight">React</span>
+                        </div>
+                        <div class="marquee-icon w-24 h-28 md:w-36 md:h-40 holographic-card hover-lift rounded-[2rem] flex flex-col items-center justify-center gap-2 p-4 md:p-5 transition-all duration-500 cursor-pointer group/icon ">
+                            <img alt="Tailwind" class="w-12 h-12 md:w-16 md:h-16 object-contain filter drop-shadow-[0_0_12px_rgba(0,0,0,0.12)] group-hover/icon:drop-shadow-[0_0_20px_rgba(33,112,228,0.35)] group-hover/icon:scale-110 transition-all duration-500" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"/>
+                            <span class="text-[10px] md:text-xs font-bold text-on-surface-variant tracking-wider uppercase text-center leading-tight">Tailwind</span>
+                        </div>
+                        <div class="marquee-icon w-24 h-28 md:w-36 md:h-40 holographic-card hover-lift rounded-[2rem] flex flex-col items-center justify-center gap-2 p-4 md:p-5 transition-all duration-500 cursor-pointer group/icon ">
+                            <img alt="Figma" class="w-12 h-12 md:w-16 md:h-16 object-contain filter drop-shadow-[0_0_12px_rgba(0,0,0,0.12)] group-hover/icon:drop-shadow-[0_0_20px_rgba(33,112,228,0.35)] group-hover/icon:scale-110 transition-all duration-500" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg"/>
+                            <span class="text-[10px] md:text-xs font-bold text-on-surface-variant tracking-wider uppercase text-center leading-tight">Figma</span>
+                        </div>
+                        <div class="marquee-icon w-24 h-28 md:w-36 md:h-40 holographic-card hover-lift rounded-[2rem] flex flex-col items-center justify-center gap-2 p-4 md:p-5 transition-all duration-500 cursor-pointer group/icon ">
+                            <img alt="Git" class="w-12 h-12 md:w-16 md:h-16 object-contain filter drop-shadow-[0_0_12px_rgba(0,0,0,0.12)] group-hover/icon:drop-shadow-[0_0_20px_rgba(33,112,228,0.35)] group-hover/icon:scale-110 transition-all duration-500" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"/>
+                            <span class="text-[10px] md:text-xs font-bold text-on-surface-variant tracking-wider uppercase text-center leading-tight">Git</span>
+                        </div>
+                        <div class="marquee-icon w-24 h-28 md:w-36 md:h-40 holographic-card hover-lift rounded-[2rem] flex flex-col items-center justify-center gap-2 p-4 md:p-5 transition-all duration-500 cursor-pointer group/icon ">
+                            <img alt="VS Code" class="w-12 h-12 md:w-16 md:h-16 object-contain filter drop-shadow-[0_0_12px_rgba(0,0,0,0.12)] group-hover/icon:drop-shadow-[0_0_20px_rgba(33,112,228,0.35)] group-hover/icon:scale-110 transition-all duration-500" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"/>
+                            <span class="text-[10px] md:text-xs font-bold text-on-surface-variant tracking-wider uppercase text-center leading-tight">VS Code</span>
+                        </div>
+                        <div class="marquee-icon w-24 h-28 md:w-36 md:h-40 holographic-card hover-lift rounded-[2rem] flex flex-col items-center justify-center gap-2 p-4 md:p-5 transition-all duration-500 cursor-pointer group/icon ">
+                            <img alt="Bootstrap" class="w-12 h-12 md:w-16 md:h-16 object-contain filter drop-shadow-[0_0_12px_rgba(0,0,0,0.12)] group-hover/icon:drop-shadow-[0_0_20px_rgba(33,112,228,0.35)] group-hover/icon:scale-110 transition-all duration-500" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg"/>
+                            <span class="text-[10px] md:text-xs font-bold text-on-surface-variant tracking-wider uppercase text-center leading-tight">Bootstrap</span>
                         </div>
                     </div>
-                    <!-- Duplicate set for seamless loop -->
-                    <div class="flex items-center gap-6 md:gap-10">
-                        <div class="marquee-icon w-20 h-20 md:w-32 md:h-32 holographic-card hover-lift hover:scale-[1.08] rounded-[2rem] flex items-center justify-center p-4 md:p-6 transition-all duration-500 cursor-pointer group/icon">
-                            <img alt="HTML5" class="w-full h-full object-contain filter drop-shadow-[0_0_20px_rgba(0,0,0,0.1)] group-hover/icon:drop-shadow-[0_0_30px_rgba(33,112,228,0.3)] transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAL_hvyM6Mxc1eMhFgryYQdmm3jy-uapKrQ0RYn7Z1QiywyOfGHqZBag6pLiZYrKy3SYlwgwxx55rPwpF0aZ0jq6FR36_s0fEscIPAp99V6pJhurSGz4HYKuGgfnFe_ca9k5XqHfpUeYMjsLkCdYIprUNKFxOXXWjKX7nCTb9EajuNPypgIjPsWBmF8ZLgUZ-Um1grZn-cR9JewhNLuo78ciZzz-EwqtdPUsEv-DwAUMHVaoacFIhH_HXte-jd5dv02kOOncuRRVjY"/>
+                    <!-- Duplicate for seamless loop -->
+                    <div class="flex items-end gap-4 md:gap-6">
+                        <div class="marquee-icon w-24 h-28 md:w-36 md:h-40 holographic-card hover-lift rounded-[2rem] flex flex-col items-center justify-center gap-2 p-4 md:p-5 transition-all duration-500 cursor-pointer group/icon ">
+                            <img alt="HTML5" class="w-12 h-12 md:w-16 md:h-16 object-contain filter drop-shadow-[0_0_12px_rgba(0,0,0,0.12)] group-hover/icon:drop-shadow-[0_0_20px_rgba(33,112,228,0.35)] group-hover/icon:scale-110 transition-all duration-500" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"/>
+                            <span class="text-[10px] md:text-xs font-bold text-on-surface-variant tracking-wider uppercase text-center leading-tight">HTML5</span>
                         </div>
-                        <div class="marquee-icon w-20 h-20 md:w-32 md:h-32 holographic-card hover-lift hover:scale-[1.08] rounded-[2rem] flex items-center justify-center p-4 md:p-6 transition-all duration-500 cursor-pointer group/icon">
-                            <img alt="CSS3" class="w-full h-full object-contain filter drop-shadow-[0_0_20px_rgba(0,0,0,0.1)] group-hover/icon:drop-shadow-[0_0_30px_rgba(33,112,228,0.3)] transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCUFnoBzjhQViGPU5_I-iImqJuzjS_qPck9SqHH7eO_TiFbCYMgFA-XR1VdnJ_6aucvSbGn83lhBM8nRRgQqoNra8LFWM5rWlv7NLmx7yzekgmJPZcj0S3zMlPNYoQ9d6DxR0wkZ_g5P1KA7fGWPXwL0oimV9WUYgNknjqxyQRSA1NKIBRf0fqFojQcybexs_fCWV7lenhH1wUKXlMy_Xseontd8XCE_w1Txu-egrxMcAson2YsUH3pVc1O0ZzysqK9LEdR3XEzic"/>
+                        <div class="marquee-icon w-24 h-28 md:w-36 md:h-40 holographic-card hover-lift rounded-[2rem] flex flex-col items-center justify-center gap-2 p-4 md:p-5 transition-all duration-500 cursor-pointer group/icon ">
+                            <img alt="CSS3" class="w-12 h-12 md:w-16 md:h-16 object-contain filter drop-shadow-[0_0_12px_rgba(0,0,0,0.12)] group-hover/icon:drop-shadow-[0_0_20px_rgba(33,112,228,0.35)] group-hover/icon:scale-110 transition-all duration-500" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"/>
+                            <span class="text-[10px] md:text-xs font-bold text-on-surface-variant tracking-wider uppercase text-center leading-tight">CSS3</span>
                         </div>
-                        <div class="marquee-icon w-20 h-20 md:w-32 md:h-32 holographic-card hover-lift hover:scale-[1.08] rounded-[2rem] flex items-center justify-center p-4 md:p-6 transition-all duration-500 cursor-pointer group/icon">
-                            <img alt="JavaScript" class="w-full h-full object-contain filter drop-shadow-[0_0_20px_rgba(0,0,0,0.1)] group-hover/icon:drop-shadow-[0_0_30px_rgba(33,112,228,0.3)] transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXmV0GEhFJydmSvuYTdjt2a-PlXTsQHgIxWnkYAz9yC7Rx8YPHTSCcIerUe1edao7A-bC3wo_cWfbbBfaMM0O7AgeHw03AeT40p8au9XCKvs91mLRETchum9-XhrAWVOl7GDRBbRuH_gy_HPD-NDzJukC9lkxO6Az5QmkjD0tyvr3ZWV_cgiimEi3VoiCgBN1uqwBdi8mUdLEeHq6cWYcQ1nt5aVkM2CCPJZ-S0EZSt_a5HNkYtNVOTL5kU65YbEnmz9xtABV3XKs"/>
+                        <div class="marquee-icon w-24 h-28 md:w-36 md:h-40 holographic-card hover-lift rounded-[2rem] flex flex-col items-center justify-center gap-2 p-4 md:p-5 transition-all duration-500 cursor-pointer group/icon ">
+                            <img alt="JavaScript" class="w-12 h-12 md:w-16 md:h-16 object-contain filter drop-shadow-[0_0_12px_rgba(0,0,0,0.12)] group-hover/icon:drop-shadow-[0_0_20px_rgba(33,112,228,0.35)] group-hover/icon:scale-110 transition-all duration-500" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"/>
+                            <span class="text-[10px] md:text-xs font-bold text-on-surface-variant tracking-wider uppercase text-center leading-tight">JavaScript</span>
                         </div>
-                        <div class="marquee-icon w-20 h-20 md:w-32 md:h-32 holographic-card hover-lift hover:scale-[1.08] rounded-[2rem] flex items-center justify-center p-4 md:p-6 transition-all duration-500 cursor-pointer group/icon">
-                            <img alt="React" class="w-full h-full object-contain filter drop-shadow-[0_0_20px_rgba(0,0,0,0.1)] group-hover/icon:drop-shadow-[0_0_30px_rgba(33,112,228,0.3)] transition-all duration-500 animate-[spin_10s_linear_infinite]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDu-l3qEl0yC1exjQf28Qa2movhBH_XfIIU0bkwm5jhpyWjbSBDxF5TLoy-1SI8UcaHBRHn7JyvoIwUc5bPGihEEakD_PqEl_UZzLWsgF_Vr8Yg3TTaGoGG8cubojgLGmDGauC0ILZk4ClhMeMp0rHmVyflZFJ2oq7oRs1mav_3nr1zfUVtvEtslbjN3AVE0qLp435057jooNSyAJ1IYdwz4uJfHjFE9y9LoJ8n8koZUVsESs6thgvWSdglzVnB1gcdFFZCCsDhkt4"/>
+                        <div class="marquee-icon w-24 h-28 md:w-36 md:h-40 holographic-card hover-lift rounded-[2rem] flex flex-col items-center justify-center gap-2 p-4 md:p-5 transition-all duration-500 cursor-pointer group/icon ">
+                            <img alt="PHP" class="w-12 h-12 md:w-16 md:h-16 object-contain filter drop-shadow-[0_0_12px_rgba(0,0,0,0.12)] group-hover/icon:drop-shadow-[0_0_20px_rgba(33,112,228,0.35)] group-hover/icon:scale-110 transition-all duration-500" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg"/>
+                            <span class="text-[10px] md:text-xs font-bold text-on-surface-variant tracking-wider uppercase text-center leading-tight">PHP</span>
                         </div>
-                        <div class="marquee-icon w-20 h-20 md:w-32 md:h-32 holographic-card hover-lift hover:scale-[1.08] rounded-[2rem] flex items-center justify-center p-4 md:p-6 transition-all duration-500 cursor-pointer group/icon">
-                            <img alt="Figma" class="w-full h-full object-contain filter drop-shadow-[0_0_20px_rgba(0,0,0,0.1)] group-hover/icon:drop-shadow-[0_0_30px_rgba(33,112,228,0.3)] transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPee6RzjuS9NbM5EU0USy5NEzCNINOPUxGvVJ9k9F90UvuAgVuAP5FFYSHv79ulFa48jEq0mzpO7CvV8C9xwUmWSAzg3qH78Ol_Rm5GHtFVQDBFyrd20en8v4WM0iD6FB1OPu_H2BdmUFMKZimZF7D4exOq1ui9MKQ7Gbv1_AVZt5Tx8L8ZPiRNwmshjdDAPzMHbHZ34oZ6oCM9mdVp2LgXlxoIIXL215v-jL750CSSsYlrqRuRty22meeZNJ3fZS-kKBIt1-NfCk"/>
+                        <div class="marquee-icon w-24 h-28 md:w-36 md:h-40 holographic-card hover-lift rounded-[2rem] flex flex-col items-center justify-center gap-2 p-4 md:p-5 transition-all duration-500 cursor-pointer group/icon ">
+                            <img alt="Laravel" class="w-12 h-12 md:w-16 md:h-16 object-contain filter drop-shadow-[0_0_12px_rgba(0,0,0,0.12)] group-hover/icon:drop-shadow-[0_0_20px_rgba(33,112,228,0.35)] group-hover/icon:scale-110 transition-all duration-500" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg"/>
+                            <span class="text-[10px] md:text-xs font-bold text-on-surface-variant tracking-wider uppercase text-center leading-tight">Laravel</span>
                         </div>
-                        <div class="marquee-icon w-20 h-20 md:w-32 md:h-32 holographic-card hover-lift hover:scale-[1.08] rounded-[2rem] flex items-center justify-center p-4 md:p-6 transition-all duration-500 cursor-pointer group/icon">
-                            <img alt="PHP" class="w-full h-full object-contain filter drop-shadow-[0_0_20px_rgba(0,0,0,0.1)] group-hover/icon:drop-shadow-[0_0_30px_rgba(33,112,228,0.3)] transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4awM6NIXOl_s1n-HjVzLK1miSrWW8ZtsQXpC836BABr-f4cLQeOs08wAyM_duwas8cJ2QpdJKf0cvGpkqcn_nA4BI0Gn9m02djK2R-Wv5A8E5rvpt9v87RZR3Fn4Z249G50eNFO45eCWlCs2f2J6Y7-xC7iDvfq-78tCMum6uKSnMn4TlBPvVtnsQZgGsT_7Xs8H_4bh1Owcckx5dhwgqTfX301S_D7SrQ1uV_f3CT9Aat-cD73SVNAKgOsbW00GTLbry0lxfdj4"/>
+                        <div class="marquee-icon w-24 h-28 md:w-36 md:h-40 holographic-card hover-lift rounded-[2rem] flex flex-col items-center justify-center gap-2 p-4 md:p-5 transition-all duration-500 cursor-pointer group/icon ">
+                            <img alt="MySQL" class="w-12 h-12 md:w-16 md:h-16 object-contain filter drop-shadow-[0_0_12px_rgba(0,0,0,0.12)] group-hover/icon:drop-shadow-[0_0_20px_rgba(33,112,228,0.35)] group-hover/icon:scale-110 transition-all duration-500" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"/>
+                            <span class="text-[10px] md:text-xs font-bold text-on-surface-variant tracking-wider uppercase text-center leading-tight">MySQL</span>
                         </div>
-                        <div class="marquee-icon w-20 h-20 md:w-32 md:h-32 holographic-card hover-lift hover:scale-[1.08] rounded-[2rem] flex items-center justify-center p-4 md:p-6 transition-all duration-500 cursor-pointer group/icon">
-                            <img alt="Laravel" class="w-full h-full object-contain filter drop-shadow-[0_0_20px_rgba(0,0,0,0.1)] group-hover/icon:drop-shadow-[0_0_30px_rgba(33,112,228,0.3)] transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRj-yW7-rfMALyxS-8Wu7Mnrgd388p_YnqBsciGsX9mk4eYfNtErZE9yeOYdhLg1E7Y-xUvS5Ukz-Wn2myduuqkKEvldkUSS9wJSAPS4Xd0XOD8VmSq1aKwUzyBxPemop1ZmUixYnNYkN_HvJQPhAVMSArNpBZFJ9TSWi_fbzDnGWxoBrcPacO2akd9XJCZSkZRety94zX9iteieCkwOkW93GWw5-qWr3YEj6n9Vh0O0L97jGpj_q7eKkeyp6jxoaFkBrOpuprPNE"/>
+                        <div class="marquee-icon w-24 h-28 md:w-36 md:h-40 holographic-card hover-lift rounded-[2rem] flex flex-col items-center justify-center gap-2 p-4 md:p-5 transition-all duration-500 cursor-pointer group/icon ">
+                            <img alt="React" class="w-12 h-12 md:w-16 md:h-16 object-contain filter drop-shadow-[0_0_12px_rgba(0,0,0,0.12)] group-hover/icon:drop-shadow-[0_0_20px_rgba(33,112,228,0.35)] group-hover/icon:scale-110 transition-all duration-500" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"/>
+                            <span class="text-[10px] md:text-xs font-bold text-on-surface-variant tracking-wider uppercase text-center leading-tight">React</span>
+                        </div>
+                        <div class="marquee-icon w-24 h-28 md:w-36 md:h-40 holographic-card hover-lift rounded-[2rem] flex flex-col items-center justify-center gap-2 p-4 md:p-5 transition-all duration-500 cursor-pointer group/icon ">
+                            <img alt="Tailwind" class="w-12 h-12 md:w-16 md:h-16 object-contain filter drop-shadow-[0_0_12px_rgba(0,0,0,0.12)] group-hover/icon:drop-shadow-[0_0_20px_rgba(33,112,228,0.35)] group-hover/icon:scale-110 transition-all duration-500" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"/>
+                            <span class="text-[10px] md:text-xs font-bold text-on-surface-variant tracking-wider uppercase text-center leading-tight">Tailwind</span>
+                        </div>
+                        <div class="marquee-icon w-24 h-28 md:w-36 md:h-40 holographic-card hover-lift rounded-[2rem] flex flex-col items-center justify-center gap-2 p-4 md:p-5 transition-all duration-500 cursor-pointer group/icon ">
+                            <img alt="Figma" class="w-12 h-12 md:w-16 md:h-16 object-contain filter drop-shadow-[0_0_12px_rgba(0,0,0,0.12)] group-hover/icon:drop-shadow-[0_0_20px_rgba(33,112,228,0.35)] group-hover/icon:scale-110 transition-all duration-500" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg"/>
+                            <span class="text-[10px] md:text-xs font-bold text-on-surface-variant tracking-wider uppercase text-center leading-tight">Figma</span>
+                        </div>
+                        <div class="marquee-icon w-24 h-28 md:w-36 md:h-40 holographic-card hover-lift rounded-[2rem] flex flex-col items-center justify-center gap-2 p-4 md:p-5 transition-all duration-500 cursor-pointer group/icon ">
+                            <img alt="Git" class="w-12 h-12 md:w-16 md:h-16 object-contain filter drop-shadow-[0_0_12px_rgba(0,0,0,0.12)] group-hover/icon:drop-shadow-[0_0_20px_rgba(33,112,228,0.35)] group-hover/icon:scale-110 transition-all duration-500" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"/>
+                            <span class="text-[10px] md:text-xs font-bold text-on-surface-variant tracking-wider uppercase text-center leading-tight">Git</span>
+                        </div>
+                        <div class="marquee-icon w-24 h-28 md:w-36 md:h-40 holographic-card hover-lift rounded-[2rem] flex flex-col items-center justify-center gap-2 p-4 md:p-5 transition-all duration-500 cursor-pointer group/icon ">
+                            <img alt="VS Code" class="w-12 h-12 md:w-16 md:h-16 object-contain filter drop-shadow-[0_0_12px_rgba(0,0,0,0.12)] group-hover/icon:drop-shadow-[0_0_20px_rgba(33,112,228,0.35)] group-hover/icon:scale-110 transition-all duration-500" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"/>
+                            <span class="text-[10px] md:text-xs font-bold text-on-surface-variant tracking-wider uppercase text-center leading-tight">VS Code</span>
+                        </div>
+                        <div class="marquee-icon w-24 h-28 md:w-36 md:h-40 holographic-card hover-lift rounded-[2rem] flex flex-col items-center justify-center gap-2 p-4 md:p-5 transition-all duration-500 cursor-pointer group/icon ">
+                            <img alt="Bootstrap" class="w-12 h-12 md:w-16 md:h-16 object-contain filter drop-shadow-[0_0_12px_rgba(0,0,0,0.12)] group-hover/icon:drop-shadow-[0_0_20px_rgba(33,112,228,0.35)] group-hover/icon:scale-110 transition-all duration-500" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg"/>
+                            <span class="text-[10px] md:text-xs font-bold text-on-surface-variant tracking-wider uppercase text-center leading-tight">Bootstrap</span>
                         </div>
                     </div>
                 </div>
@@ -719,7 +933,7 @@
                         </div>
                         <div>
                             <p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Email Me</p>
-                            <p class="font-body-md font-semibold break-all">kamalkhaerussyam18@gmail.com</p>
+                            <p class="font-body-md font-semibold break-all">kamal@example.com</p>
                         </div>
                     </div>
                     <div class="flex items-center gap-4 group cursor-pointer">
@@ -869,6 +1083,46 @@
             link.classList.toggle('text-on-surface-variant', !isActive);
         });
     }, { passive: true });
+
+    // ── Dark Mode ──
+    const htmlEl   = document.documentElement;
+    const toggle   = document.getElementById('dark-toggle');
+    const knob     = document.getElementById('dark-toggle-knob');
+    const DARK_KEY = 'kamal-dark-mode';
+
+    function applyDark(isDark) {
+        if (isDark) {
+            htmlEl.classList.add('dark');
+            knob.textContent = '🌙';
+        } else {
+            htmlEl.classList.remove('dark');
+            knob.textContent = '☀️';
+        }
+        // Update marquee fade edges
+        const bg = isDark ? '#0d0f10' : '#f8f9fa';
+        document.querySelectorAll('.marquee-fade-left').forEach(el => {
+            el.style.background = `linear-gradient(to right, ${bg}, transparent)`;
+        });
+        document.querySelectorAll('.marquee-fade-right').forEach(el => {
+            el.style.background = `linear-gradient(to left, ${bg}, transparent)`;
+        });
+    }
+
+    // Load saved preference, fallback to system preference
+    const saved = localStorage.getItem(DARK_KEY);
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    applyDark(saved !== null ? saved === 'true' : prefersDark);
+
+    toggle.addEventListener('click', () => {
+        const isDark = !htmlEl.classList.contains('dark');
+        applyDark(isDark);
+        localStorage.setItem(DARK_KEY, isDark);
+    });
+
+    // Sync with system preference changes (only if user hasn't set manually)
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+        if (localStorage.getItem(DARK_KEY) === null) applyDark(e.matches);
+    });
 </script>
 </body>
 </html>
